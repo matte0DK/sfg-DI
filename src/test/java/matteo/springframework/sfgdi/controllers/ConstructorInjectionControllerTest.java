@@ -1,10 +1,8 @@
 package matteo.springframework.sfgdi.controllers;
 
-import matteo.springframework.sfgdi.services.GreetingServiceImpl;
+import matteo.springframework.sfgdi.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConstructorInjectionControllerTest {
 
@@ -12,7 +10,7 @@ class ConstructorInjectionControllerTest {
 
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectionController(new GreetingServiceImpl());
+        controller = new ConstructorInjectionController(new ConstructorGreetingService());
     }
 
     @Test
