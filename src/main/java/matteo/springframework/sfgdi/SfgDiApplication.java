@@ -1,9 +1,6 @@
 package matteo.springframework.sfgdi;
 
-import matteo.springframework.sfgdi.controllers.ConstructorInjectionController;
-import matteo.springframework.sfgdi.controllers.MyController;
-import matteo.springframework.sfgdi.controllers.PropertyInjectionController;
-import matteo.springframework.sfgdi.controllers.SetterInjectionController;
+import matteo.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,9 +11,15 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext context = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) context.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 		MyController myController = (MyController) context.getBean("myController");
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+
+		System.out.println("------ Primary Bean");
+		System.out.println(myController.sayHello());
+		/*System.out.println(greeting);*/
 
 		System.out.println("------ Property");
 		PropertyInjectionController propertyInjectionController = (PropertyInjectionController) context.getBean("propertyInjectionController");

@@ -1,0 +1,31 @@
+THE IoC CONTAINER
+-----------------
+Responsible to instantiate, configure and assemble the objects.
+The IoC container gets information from the XML file and works accordingly.
+The main tasks performed by IoC container are:
+
+- to instantiate the application class
+- to configure the object
+- to assemble the dependencies between the objects
+
+There are two types of IoC containers:
+
+- BeanFactory
+- ApplicationContext
+
+! The ApplicationContext interface is built on top of the BeanFactory interface.
+It adds some extra functionality than BeanFactory such as simple integration with Spring's AOP, message resource handling (for I18N),
+event propagation, application layer specific context (e.g. WebApplicationContext) for web application.
+So it is better to use ApplicationContext than BeanFactory !
+
+
+WHAT IS A SPRING BEAN?
+----------------------
+1. Spring Bean
+In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans.
+A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
+
+2. Inversion of Control
+Simply put, Inversion of Control, or IoC for short, is a process in which an object defines its dependencies without creating them.
+This object delegates the job of constructing such dependencies to an IoC container.
+
