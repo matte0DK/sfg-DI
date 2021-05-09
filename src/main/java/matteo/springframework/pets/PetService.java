@@ -1,4 +1,4 @@
-package matteo.springframework.sfgdi.services;
+package matteo.springframework.pets;
 
 public interface PetService {
     String getPetType();

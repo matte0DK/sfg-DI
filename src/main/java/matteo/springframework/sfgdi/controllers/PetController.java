@@ -1,6 +1,6 @@
 package matteo.springframework.sfgdi.controllers;
 
-import matteo.springframework.sfgdi.services.PetService;
+import matteo.springframework.pets.PetService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
