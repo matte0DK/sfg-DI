@@ -12,7 +12,7 @@ public class PetController {
         this.petService = petService;
     }
 
-    public String whichPetIsTheBest(){
+    public String whichPetIsTheBest() {
         return petService.getPetType();
     }
 }

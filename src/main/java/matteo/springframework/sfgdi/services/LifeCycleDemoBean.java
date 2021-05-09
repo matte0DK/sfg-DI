@@ -44,7 +44,7 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     }
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         System.out.println("## The Post Construct annotated method has been called");
     }
 
@@ -53,11 +53,11 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("## The Predestroy annotated method has been called");
     }
 
-    public void beforeInit(){
+    public void beforeInit() {
         System.out.println("## - Before Init - Called by Bean Post Processor");
     }
 
-    public void afterInit(){
+    public void afterInit() {
         System.out.println("## - After init called by Bean Post Processor");
     }
 }
