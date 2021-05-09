@@ -1,13 +1,31 @@
 package matteo.springframework.sfgdi.config;
 
-import matteo.springframework.sfgdi.services.ConstructorGreetingService;
-import matteo.springframework.sfgdi.services.PropertyGreetingService;
-import matteo.springframework.sfgdi.services.SetterGreetingService;
+import matteo.springframework.sfgdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Profile("ES")
+    @Bean("i18nService")
+    I18nSpanishGreetingService i18NSpanishService() {
+        return new I18nSpanishGreetingService();
+    }
+
+    @Profile("EN")
+    @Bean
+    I18nEnglishGreetingService i18nService() {
+        return new I18nEnglishGreetingService();
+    }
+
+    @Primary
+    @Bean
+    PrimaryGreetingService primaryGreetingService() {
+        return new PrimaryGreetingService();
+    }
 
     @Bean
     ConstructorGreetingService constructorGreetingService() {
