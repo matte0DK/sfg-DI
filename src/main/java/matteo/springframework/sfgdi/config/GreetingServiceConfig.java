@@ -5,11 +5,9 @@ import matteo.springframework.pets.PetServiceFactory;
 import matteo.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import matteo.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import matteo.springframework.sfgdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -18,14 +16,15 @@ public class GreetingServiceConfig {
         return new PetServiceFactory();
     }
 
-    @Bean("petService")
     @Profile({"cat", "default"})
+    @Bean/*("petService")*/
     PetService catPetService(PetServiceFactory petServiceFactory) {
         return petServiceFactory.getPetService("cat");
     }
 
-    @Bean("petService")
+
     @Profile("dog")
+    @Bean/*("petService")*/
     PetService dogPetService(PetServiceFactory petServiceFactory) {
         return petServiceFactory.getPetService("dog");
     }
@@ -54,7 +53,7 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-    @Bean
+    /*@Bean*/
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
     }
