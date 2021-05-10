@@ -4,9 +4,7 @@ import matteo.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"matteo.springframework.sfgdi", "matteo.springframework.pets"})
 @SpringBootApplication
 public class SfgDiApplication {
 
