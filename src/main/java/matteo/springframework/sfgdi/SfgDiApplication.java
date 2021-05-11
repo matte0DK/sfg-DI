@@ -1,5 +1,7 @@
 package matteo.springframework.sfgdi;
 
+import matteo.springframework.sfgdi.config.SfgConfig;
+import matteo.springframework.sfgdi.config.SfgConstructorConfig;
 import matteo.springframework.sfgdi.controllers.*;
 import matteo.springframework.sfgdi.datasource.FakeDataSource;
 import matteo.springframework.sfgdi.services.PrototypeBean;
@@ -54,6 +56,18 @@ public class SfgDiApplication {
         System.out.println(fakeDataSource.getUsername());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getJdbcUrl());
+
+        System.out.println("------ Config Props Bean");
+        SfgConfig sfgConfig = context.getBean(SfgConfig.class);
+        System.out.println(sfgConfig.getUsername());
+        System.out.println(sfgConfig.getPassword());
+        System.out.println(sfgConfig.getJdbcUrl());
+
+        System.out.println("------ Constructor Binding");
+        SfgConstructorConfig sfgConstructorConfig = context.getBean(SfgConstructorConfig.class);
+        System.out.println(sfgConstructorConfig.getUsername());
+        System.out.println(sfgConstructorConfig.getPassword());
+        System.out.println(sfgConstructorConfig.getJdbcUrl());
     }
 
 }

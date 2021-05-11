@@ -6,23 +6,22 @@ import matteo.springframework.sfgdi.datasource.FakeDataSource;
 import matteo.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import matteo.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import matteo.springframework.sfgdi.services.*;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
 /*@PropertySource("classpath:datasource.properties")*/
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${matteo.username}") String username,
-                                  @Value("${matteo.password}")String password,
-                                  @Value("${matteo.jdbcUrl}")String jdbcUrl) {
+    FakeDataSource fakeDataSource(SfgConstructorConfig sfgConstructorConfig) {
 
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcUrl(jdbcUrl);
+        fakeDataSource.setUsername(sfgConstructorConfig.getUsername());
+        fakeDataSource.setPassword(sfgConstructorConfig.getPassword());
+        fakeDataSource.setJdbcUrl(sfgConstructorConfig.getJdbcUrl());
 
         return fakeDataSource;
     }
